@@ -93,7 +93,6 @@ Not all formatting issues cause failure (warnings only for now)
 
  - ✨ plumfmt — automatic formatter for Plum code
  - 🧮 Built-in vector/matrix math utilities
- - 🔐 Strong typing and type annotations (my Int $x)
  - 🌐 Channel-based concurrency (like Go's goroutines)
  - 🧪 Test suite for validating Plum compliance
  - 🚀 Compiled Plum runtime (a forked Perl interpreter)
