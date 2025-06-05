@@ -36,14 +36,14 @@
 1. Copy `Plum.pm` into your Perl project (`lib/Plum.pm`)
 2. In your Perl file:
 
-```perl
+```
 use lib 'lib';    # if needed
 use Plum;
-
----
+```
 
 ## 🚀 Usage Example
 
+```
 use Plum;
 
 foreach my $item (1..3) {
@@ -57,19 +57,21 @@ my $pid = spawn(sub {
   print "Running in parallel!";
 });
 waitpid($pid, 0);
+```
 
----
 
 ## 🧱 How It Works
 
 Plum uses Filter::Simple to inspect source code before compilation, catching bad syntax like:
 
+```
 for my $x (...)     # ❌ use foreach
 eval { ... }        # ❌ disallowed
 goto LABEL;         # ❌ disallowed
 $$var = ...         # ❌ disallowed symbolic ref
 local $x = ...      # ❌ use 'my'
 require Foo;        # ❌ use 'use'
+```
 
 It also reads the current source file during import() to check formatting:
 
@@ -79,7 +81,6 @@ It also reads the current source file during import() to check formatting:
 | Misaligned indent | `Plum indent warning: indent should be multiple of 2 spaces`    |
 | Misplaced braces  | `Plum format warning: opening brace should be on the same line` |
 
----
 
 ## ⚠ Limitations
 
@@ -87,28 +88,25 @@ Source filtering is static and may not catch dynamic code (eval $string, etc.)
 No AST-level enforcement (yet)
 Not all formatting issues cause failure (warnings only for now)
 
----
 
 ## 🔮 Future Roadmap
 
-✨ plumfmt — automatic formatter for Plum code
-🧮 Built-in vector/matrix math utilities
-🔐 Strong typing and type annotations (my Int $x)
-🌐 Channel-based concurrency (like Go's goroutines)
-🧪 Test suite for validating Plum compliance
-🚀 Compiled Plum runtime (a forked Perl interpreter)
+ - ✨ plumfmt — automatic formatter for Plum code
+ - 🧮 Built-in vector/matrix math utilities
+ - 🔐 Strong typing and type annotations (my Int $x)
+ - 🌐 Channel-based concurrency (like Go's goroutines)
+ - 🧪 Test suite for validating Plum compliance
+ - 🚀 Compiled Plum runtime (a forked Perl interpreter)
 
----
 
 ## 🤝 Contributing
 
 Want to help shape Plum? File issues or submit PRs to:
 
-    Add new language features
-    Improve static checking
-    Add useful standard library functions
+ - Add new language features
+ - Improve static checking
+ - Add useful standard library functions
 
----
 
 ## 📄 License
 
